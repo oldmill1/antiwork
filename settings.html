@@ -1,169 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Extension Settings</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .setting-group {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .setting-group:last-child {
-            border-bottom: none;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        input[type="checkbox"] {
-            width: auto;
-            margin-right: 8px;
-        }
-        button {
-            background-color: #4285f4;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-right: 10px;
-        }
-        button:hover {
-            background-color: #3367d6;
-        }
-        .checkbox-setting {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .checkbox-setting label {
-            margin-bottom: 0;
-            cursor: pointer;
-        }
-    </style>
+    <title>ANTIWORK</title>
+    <link rel="stylesheet" href="settings.css">
 </head>
 <body>
     <div class="container">
-        <h1>Extension Settings</h1>
+        <h1>ANTIWORK</h1>
         
-        <div class="setting-group">
-            <h3>General</h3>
-            <div class="checkbox-setting">
-                <input type="checkbox" id="enableNotifications">
-                <label for="enableNotifications">Enable notifications</label>
-            </div>
-            <div class="checkbox-setting">
-                <input type="checkbox" id="autoStart">
-                <label for="autoStart">Start automatically with Chrome</label>
-            </div>
-        </div>
-
-        <div class="setting-group">
-            <h3>Appearance</h3>
-            <label for="theme">Theme:</label>
-            <select id="theme">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="auto">Auto</option>
-            </select>
-        </div>
-
-        <div class="setting-group">
-            <h3>Behavior</h3>
-            <label for="defaultAction">Default action:</label>
-            <select id="defaultAction">
-                <option value="popup">Show popup</option>
-                <option value="settings">Open settings</option>
-                <option value="newtab">Open new tab</option>
-            </select>
-        </div>
-
-        <div class="setting-group">
-            <h3>Custom Message</h3>
-            <label for="customMessage">Enter your custom message:</label>
-            <textarea id="customMessage" rows="3" placeholder="Type your message here..."></textarea>
-        </div>
-
         <div style="text-align: center; margin-top: 30px;">
-            <button onclick="saveSettings()">Save Settings</button>
-            <button onclick="resetSettings()" style="background-color: #666;">Reset to Default</button>
+            <span id="sun-emoji" style="font-size: 4rem; cursor: pointer; user-select: none; color: #ffd700;">SUN</span>
         </div>
+
+    <script src="settings.js"></script>
     </div>
 
-    <script>
-        // Load saved settings
-        function loadSettings() {
-            chrome.storage.sync.get({
-                enableNotifications: true,
-                autoStart: false,
-                theme: 'light',
-                defaultAction: 'popup',
-                customMessage: ''
-            }, function(items) {
-                document.getElementById('enableNotifications').checked = items.enableNotifications;
-                document.getElementById('autoStart').checked = items.autoStart;
-                document.getElementById('theme').value = items.theme;
-                document.getElementById('defaultAction').value = items.defaultAction;
-                document.getElementById('customMessage').value = items.customMessage;
-            });
-        }
-
-        // Save settings
-        function saveSettings() {
-            const settings = {
-                enableNotifications: document.getElementById('enableNotifications').checked,
-                autoStart: document.getElementById('autoStart').checked,
-                theme: document.getElementById('theme').value,
-                defaultAction: document.getElementById('defaultAction').value,
-                customMessage: document.getElementById('customMessage').value
-            };
-
-            chrome.storage.sync.set(settings, function() {
-                alert('Settings saved successfully!');
-            });
-        }
-
-        // Reset to default settings
-        function resetSettings() {
-            if (confirm('Are you sure you want to reset all settings to default?')) {
-                chrome.storage.sync.clear(function() {
-                    loadSettings();
-                    alert('Settings reset to default!');
-                });
-            }
-        }
-
-        // Load settings when page loads
-        document.addEventListener('DOMContentLoaded', loadSettings);
-    </script>
 </body>
 </html>
