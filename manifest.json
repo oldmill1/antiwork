@@ -3,6 +3,7 @@
     "name": "Hello World",
     "description": "My first Chrome extension",
     "version": "1.0",
+    "permissions": ["tabs", "storage"],
     "action": {
       "default_popup": "popup.html"
     }
