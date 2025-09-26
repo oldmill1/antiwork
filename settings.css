@@ -92,3 +92,64 @@ textarea:focus {
     border-color: #4285f4;
     box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
 }
+
+/* Settings Drawer Styles */
+.settings-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    border-left: 1px solid #333;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.settings-drawer.open {
+    right: 0;
+}
+
+.settings-content {
+    padding: 20px;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.settings-header h2 {
+    margin: 0;
+    color: #e0e0e0;
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #e0e0e0;
+}
+
+.setting-group h3 {
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
